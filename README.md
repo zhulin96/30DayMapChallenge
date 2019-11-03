@@ -1,6 +1,6 @@
 ### 30 Days Map Challenge taken from [@bayoishola20](https://github.com/bayoishola20)
 
-- [Day 1](day1) 
+- [Day 1](https://sebastian-ch.github.io/30DayMapChallenge/day1/) 
 
 - [] Day 2
 
