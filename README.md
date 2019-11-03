@@ -1,8 +1,7 @@
 ### 30 Days Map Challenge taken from [@bayoishola20](https://github.com/bayoishola20)
 
-- [Day 1 (using d3)](https://sebastian-ch.github.io/30DayMapChallenge/day1/) 
-
-- [Day 2](https://sebastian-ch.github.io/30DayMapChallenge/day2/)(using mapbox-gl)
+- [Day 1](https://sebastian-ch.github.io/30DayMapChallenge/day1/) (using d3)
+- [Day 2](https://sebastian-ch.github.io/30DayMapChallenge/day2/) (using mapbox-gl)
 
 * Day 3
 
