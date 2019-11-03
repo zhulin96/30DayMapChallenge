@@ -1,0 +1,149 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>US Big Cities</title>
+
+    <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background: whitesmoke;
+            font-family: Montserrat, sans-serif;
+        }
+
+        .states {
+            fill: #d3d3d3;
+            stroke: black;
+            stroke-width: 0.1;
+        }
+        
+
+        .cities {
+            fill:#005DAA;
+            stroke: white;
+            stroke-width: 1;
+         
+        }
+
+        h1 {
+            width: 80%;
+            margin: 10px auto 10px auto;
+            left: 20px;
+            top: 10px;
+            font-size: 2em;
+            font-weight: 100;
+            color: #005DAA;
+            text-align: center;
+        }
+
+        #map {
+            width: 80%;
+            margin: 10px auto 10px auto;
+            border: 1px solid #d3d3d3;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>US Big Cities</h1>
+
+    <div id="map"></div>
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
+
+    <script>
+        d3.select(window).on('resize', resize);
+
+        var margin = {
+                top: 10,
+                left: 10,
+                bottom: 10,
+                right: 10
+            },
+
+            width = parseInt(d3.select('#map').style('width')),
+            width = width - margin.left - margin.right,
+            mapRatio = .5,
+            //height = width * mapRatio;
+            height = 600;
+
+        var svg = d3.select("#map")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        var files = ["/geojsons/states.geojson", "/geojsons/cities.geojson"];
+        var promises = [];
+
+
+        files.forEach(function (url) {
+            promises.push(d3.json(url))
+        });
+
+        Promise.all(promises).then(function (values) {
+            makeMap(values[0], values[1])
+        });
+
+
+        function makeMap(states, cities) {
+
+            console.log(cities);
+
+            var projection = d3.geoAlbersUsa()
+                .fitSize([width - 50, height - 50], states);
+
+            var geoPath = d3.geoPath()
+                .projection(projection);
+
+            svg.append("g")
+                .selectAll("path")
+                .data(states.features)
+                .enter()
+                .append("path")
+                .attr("d", geoPath)
+                .attr("class", "states");
+
+
+                svg.append("g")
+                    .selectAll('path')
+                    .data(cities.features)
+                    .enter()
+                    .append("path")
+                    .attr("d", geoPath)
+                    .attr("class", "cities")
+
+        }
+
+        //update size on window resize
+        //doesn't really work atm
+        function resize() {
+
+            width = parseInt(d3.select('#map').style('width'));
+            width = width - margin.left - margin.right;
+            height = width * mapRatio;
+
+            // update projection
+            projection
+                //.translate([width / 2, height / 2])
+                //.scale(width);
+                .fitSize([width - 50, height - 50], states);
+
+            // resize the map container
+            svg
+                .style('width', width + 'px')
+                .style('height', height + 'px');
+
+            // resize the data
+            svg.selectAll('.states').attr('d', geoPath);
+            svg.selectAll('.cities').attr('d', geoPath);
+        }
+    </script>
+</body>
+
+</html>
