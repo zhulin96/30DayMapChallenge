@@ -1,8 +1,8 @@
-# 30 Days Map Challenge <small>(@tjukanov) </small>
+# 30 Days Map Challenge [taken from @bayoishola20](https://github.com/bayoishola20)
 
-- [x] Day 1 
+- [] Day 1 
 
-- [x] Day 2
+- [] Day 2
 
 * Day 3
 
