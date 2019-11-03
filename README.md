@@ -1,4 +1,4 @@
-# 30 Days Map Challenge [taken from @bayoishola20](https://github.com/bayoishola20)
+### 30 Days Map Challenge taken from [@bayoishola20](https://github.com/bayoishola20)
 
 - [] Day 1 
 
