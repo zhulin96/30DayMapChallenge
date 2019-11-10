@@ -18,7 +18,7 @@
 * Day 9
 
 * Day 10
-  ![day10 image](https://github.com/zhulin96/30DayMapChallenge/blob/master/screenshot/day10.png)
+  ![day10 image](https://github.com/zhulin96/30DayMapChallenge/blob/master/screenshot/day10.png = 30x30)
 * Day 11
 
 * Day 12
