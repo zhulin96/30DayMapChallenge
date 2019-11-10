@@ -18,7 +18,7 @@
 * Day 9
 
 * Day 10
-  <img src="https://github.com/zhulin96/30DayMapChallenge/blob/master/screenshot/day10.png" width="100">
+  <img src="https://github.com/zhulin96/30DayMapChallenge/blob/master/screenshot/day10.png" width="500">
 * Day 11
 
 * Day 12
